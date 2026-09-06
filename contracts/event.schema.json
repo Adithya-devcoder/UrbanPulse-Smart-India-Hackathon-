@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://urbanpulse.sih/contracts/event.schema.json",
+  "title": "UrbanPulse Edge Event",
+  "description": "Single source of truth for the edge -> central contract. Edge validates on write, central validates on ingest. Version this file; never change a field's meaning in place.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event_id",
+    "device_id",
+    "captured_at",
+    "event_type",
+    "subtype",
+    "camera",
+    "detection",
+    "location",
+    "integrity"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "1.0" },
+
+    "event_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Generated on the EDGE. Doubles as the ingest idempotency key so retries after a dropped ACK cannot duplicate."
+    },
+    "device_id": {
+      "type": "string",
+      "description": "Stable edge node identity, e.g. 'bus-KA01F1234'. Bound to the signing key in the device registry."
+    },
+    "route_id": { "type": ["string", "null"], "description": "GTFS route id, for route-delay analytics." },
+    "trip_id": { "type": ["string", "null"], "description": "GTFS trip id - one bus run." },
+
+    "captured_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC, from the edge clock. May be far behind ingest time after a dead-zone buffer flush - never assume captured_at ~ now."
+    },
+    "ingested_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Set by central on receipt. Null on the wire. (ingested_at - captured_at) is the store-and-forward latency metric for Module 11."
+    },
+
+    "event_type": {
+      "type": "string",
+      "enum": ["road_defect", "infrastructure", "traffic_state", "pedestrian_risk", "driving_incident"]
+    },
+    "subtype": {
+      "type": "string",
+      "enum": [
+        "pothole", "road_crack", "waterlogging", "road_damage_other",
+        "signboard_present", "signboard_damaged", "missing_signboard",
+        "zebra_crossing_present", "zebra_crossing_faded", "missing_zebra_crossing",
+        "divider_present", "divider_gap",
+        "vehicle_density", "bottleneck",
+        "pedestrian_crossing_risk", "school_children_crossing",
+        "rash_driving", "hit_and_run", "sudden_lane_change"
+      ]
+    },
+    "camera": { "type": "string", "enum": ["front", "rear", "left", "right"] },
+
+    "detection": {
+      "type": "object",
+      "required": ["class", "confidence", "frame_size"],
+      "additionalProperties": false,
+      "properties": {
+        "class": { "type": "string" },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Raw model confidence. Distinct from fused confidence, which central owns."
+        },
+        "bbox_px": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 4,
+          "maxItems": 4,
+          "description": "[x, y, w, h] top-left origin, pixels."
+        },
+        "frame_size": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "[width, height] - required to interpret bbox_px across differing camera resolutions."
+        },
+        "track_id": {
+          "type": ["integer", "null"],
+          "description": "Tracker id, scoped to this device+camera+trip. Not globally unique."
+        },
+        "model_id": {
+          "type": ["string", "null"],
+          "description": "e.g. 'yolo-infra-v3-int8'. Needed to attribute accuracy regressions to a model version."
+        }
+      }
+    },
+
+    "geometry": {
+      "type": ["object", "null"],
+      "description": "Road-plane measurements from the IPM layer. Null when the camera is uncalibrated - consumers MUST handle null and fall back to bus position.",
+      "additionalProperties": false,
+      "properties": {
+        "lateral_m": { "type": "number", "description": "Metres right of bus centreline; negative = left." },
+        "forward_m": { "type": "number", "description": "Metres ahead of the camera along the road plane." },
+        "estimated_size_m2": {
+          "type": ["number", "null"],
+          "description": "Physical footprint. THE severity input - scale-invariant, unlike bbox area."
+        },
+        "range_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Degrades with forward_m; the flat-road assumption breaks at distance and on gradients."
+        }
+      }
+    },
+
+    "location": {
+      "type": "object",
+      "required": ["bus"],
+      "additionalProperties": false,
+      "properties": {
+        "bus": {
+          "type": "object",
+          "required": ["lat", "lon"],
+          "additionalProperties": false,
+          "properties": {
+            "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+            "lon": { "type": "number", "minimum": -180, "maximum": 180 },
+            "speed_mps": { "type": ["number", "null"] },
+            "heading_deg": {
+              "type": ["number", "null"],
+              "minimum": 0,
+              "maximum": 360,
+              "description": "Required to project the subject position from road-plane offsets."
+            },
+            "hdop": { "type": ["number", "null"] },
+            "fix_age_s": {
+              "type": ["number", "null"],
+              "description": "Age of the GPS fix at capture. Dominates localization error at 1 Hz."
+            }
+          }
+        },
+        "subject": {
+          "type": ["object", "null"],
+          "description": "Where the detected THING is, not where the bus was. bus_pos + R(heading)*(lateral, forward), then map-matched. This is what fusion clusters on.",
+          "additionalProperties": false,
+          "properties": {
+            "lat": { "type": "number" },
+            "lon": { "type": "number" },
+            "error_m": { "type": "number", "description": "Propagated estimate. Feeds the DBSCAN eps choice." },
+            "map_matched": { "type": "boolean" },
+            "osm_way_id": { "type": ["integer", "null"] }
+          }
+        }
+      }
+    },
+
+    "traffic_state": {
+      "type": ["object", "null"],
+      "description": "Populated for event_type=traffic_state. Density is per-lane-100m, NOT per-frame - frame counts are not comparable across cameras or speeds.",
+      "additionalProperties": false,
+      "properties": {
+        "counts_by_class": { "type": "object", "additionalProperties": { "type": "integer" } },
+        "density_per_100m": { "type": ["number", "null"] },
+        "mean_ground_speed_mps": { "type": ["number", "null"] },
+        "observation_window_s": { "type": "number" },
+        "congestion_level": { "type": "string", "enum": ["free_flow", "moderate", "heavy", "jam"] }
+      }
+    },
+
+    "anpr": {
+      "type": ["object", "null"],
+      "description": "Only for driving_incident events, and only within OCR-readable range. plate_text is null unless the incident is authority-flagged; the hash always travels, the plaintext does not.",
+      "additionalProperties": false,
+      "properties": {
+        "plate_text": {
+          "type": ["string", "null"],
+          "description": "Normally NULL on the wire. Plaintext lives only inside sealed_evidence."
+        },
+        "plate_token": {
+          "type": ["string", "null"],
+          "description": "HMAC-SHA256(normalized_plate, daily_rotating_salt)[:16]. Irreversible; enables O-D matching without identity."
+        },
+        "aggregate_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "From multi-frame voting - the PS-mandated confidence score."
+        },
+        "char_confidences": { "type": "array", "items": { "type": "number" } },
+        "frames_voted": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Reads combined across the track. A judge will ask for this number."
+        },
+        "sealed_evidence": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "ciphertext_ref": { "type": "string" },
+            "wrapped_key": {
+              "type": "string",
+              "description": "Content key under the command centre public key. The edge cannot decrypt its own evidence."
+            },
+            "alg": { "const": "AES-256-GCM+ECIES-P256" },
+            "nonce": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "evidence": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "crop_ref": { "type": ["string", "null"], "description": "Object-store key or inline base64 for small crops." },
+        "crop_sha256": {
+          "type": ["string", "null"],
+          "description": "Covered by the integrity signature, so evidence cannot be swapped post-hoc."
+        },
+        "crop_bytes": { "type": ["integer", "null"] },
+        "clip_ref": {
+          "type": ["string", "null"],
+          "description": "Set only for high-confidence incidents. Sourced from the pre-trigger ring buffer."
+        },
+        "clip_bytes": { "type": ["integer", "null"] },
+        "privacy": {
+          "type": "object",
+          "required": ["faces_blurred", "plates_blurred", "method"],
+          "additionalProperties": false,
+          "properties": {
+            "faces_blurred": { "type": "integer", "minimum": 0 },
+            "plates_blurred": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Non-flagged plates. Counts make anonymization auditable rather than merely asserted."
+            },
+            "method": { "type": "string", "description": "e.g. 'gaussian_r15'" },
+            "applied_before_persist": {
+              "type": "boolean",
+              "description": "Must be true. Blurring after a disk write breaks the chain-of-custody claim."
+            }
+          }
+        }
+      }
+    },
+
+    "integrity": {
+      "type": "object",
+      "required": ["seq", "payload_hash", "signature", "key_id"],
+      "additionalProperties": false,
+      "properties": {
+        "seq": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Per-device monotonic counter. A gap means loss or tampering, so central can detect deletion."
+        },
+        "prev_hash": { "type": ["string", "null"], "description": "chain_hash of seq-1. Null only for seq 0." },
+        "payload_hash": {
+          "type": "string",
+          "description": "SHA256 over CANONICAL json (sorted keys, fixed separators) of the event minus this block. Non-canonical serialization silently breaks verification."
+        },
+        "signature": { "type": "string", "description": "ECDSA-P256 over SHA256(payload_hash || prev_hash)." },
+        "key_id": { "type": "string", "description": "Device key identifier, resolved against the central device registry." }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+import type { Camera } from '../types';
+
+export const mockCameras: Camera[] = [
+  {
+    id: 'CAM-042',
+    location: 'Anna Salai (Near Saidapet)',
+    status: 'online',
+    lastFrame: '12:04:31',
+    coordinates: { lat: 13.0569, lng: 80.2425, x: 0.42, y: 0.38 },
+    coverageRadius: 80,
+  },
+  {
+    id: 'CAM-017',
+    location: 'OMR — Perungudi Junction',
+    status: 'online',
+    lastFrame: '12:04:29',
+    coordinates: { lat: 12.9279, lng: 80.2294, x: 0.58, y: 0.55 },
+    coverageRadius: 70,
+  },
+  {
+    id: 'CAM-031',
+    location: 'Velachery Main Road',
+    status: 'online',
+    lastFrame: '12:04:30',
+    coordinates: { lat: 12.9815, lng: 80.2166, x: 0.51, y: 0.48 },
+    coverageRadius: 65,
+  },
+  {
+    id: 'CAM-008',
+    location: 'GST Road — Vandalur Toll',
+    status: 'degraded',
+    lastFrame: '11:59:44',
+    coordinates: { lat: 12.9519, lng: 80.1995, x: 0.33, y: 0.52 },
+    coverageRadius: 60,
+  },
+  {
+    id: 'CAM-055',
+    location: 'Adyar Bridge',
+    status: 'online',
+    lastFrame: '12:04:28',
+    coordinates: { lat: 13.0012, lng: 80.2565, x: 0.64, y: 0.43 },
+    coverageRadius: 75,
+  },
+  {
+    id: 'CAM-013',
+    location: 'Mount Road — Anna Square',
+    status: 'online',
+    lastFrame: '12:04:31',
+    coordinates: { lat: 13.0641, lng: 80.2795, x: 0.72, y: 0.35 },
+    coverageRadius: 80,
+  },
+  {
+    id: 'CAM-029',
+    location: 'OMR Sholinganallur',
+    status: 'offline',
+    lastFrame: '10:12:05',
+    coordinates: { lat: 12.9007, lng: 80.2284, x: 0.61, y: 0.62 },
+    coverageRadius: 55,
+  },
+  {
+    id: 'CAM-047',
+    location: 'Velachery Junction',
+    status: 'online',
+    lastFrame: '12:04:30',
+    coordinates: { lat: 12.9780, lng: 80.2200, x: 0.53, y: 0.50 },
+    coverageRadius: 70,
+  },
+];

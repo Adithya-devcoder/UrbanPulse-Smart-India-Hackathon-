@@ -1,0 +1,27 @@
+{
+    "accidents": 1,
+    "htr": 15,
+    "status": "ACCIDENT/HTR DETECTED",
+    "bus_id": "MTC-DEMO-001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "timestamp": "2026-08-31T17:39:31.306812",
+    "recent_alerts": [
+        {
+            "event_id": "ACCIDENT-20260831173856-1",
+            "event_type": "ACCIDENT",
+            "bus_id": "MTC-DEMO-001",
+            "latitude": 13.0827,
+            "longitude": 80.2707,
+            "timestamp": "2026-08-31T17:38:56.604282",
+            "vehicles_involved": [
+                404,
+                405
+            ],
+            "overlap_iou": 0.854,
+            "vel_v1": 11.7,
+            "vel_v2": 19.23,
+            "frame": 1366
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "frame": 2098,
+    "fps": 21.1,
+    "timestamp": "2026-08-31T17:39:31.307209",
+    "bus_id": "MTC-DEMO-001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "vehicles": 2,
+    "density": "LOW",
+    "cars": 0,
+    "motorcycles": 0,
+    "buses": 1,
+    "trucks": 1,
+    "potholes": 4,
+    "waterlogging": 3,
+    "obstacles": 34,
+    "accidents": 1,
+    "htr": 15,
+    "sign_issues": 0,
+    "active_road_issues": 1
+}

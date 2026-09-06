@@ -1,0 +1,13 @@
+{
+    "event_id": "POTHOLE-20260830160929-20",
+    "event_type": "POTHOLE",
+    "bus_id": "MTC-DEMO-001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "timestamp": "2026-08-30T16:09:29.379493",
+    "confidence": 0.818,
+    "confirmation_frames": 3,
+    "video": "traffic2.mp4",
+    "frame": 2186,
+    "road_segment": "13.083_80.271"
+}

@@ -1,0 +1,901 @@
+{
+    "waterlog_count": 178,
+    "status": "WATERLOGGING DETECTED",
+    "bus_id": "MTC-DEMO-001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "timestamp": "2026-08-31T17:38:04.944672",
+    "confidence": 0.321,
+    "all_locations": [
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.37
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.34
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.581
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.212
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.24
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.337
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.226
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.984
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.39
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.295
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.194
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.224
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.333
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.232
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.453
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.552
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.442
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.281
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.489
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.937
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.405
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.243
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.207
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.186
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.182
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.223
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.221
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.278
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.249
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.187
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.242
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.234
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.165
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.288
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.267
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.197
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.727
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.43
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.418
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.315
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.343
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.276
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.179
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.248
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.381
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.236
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.201
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.312
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.245
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.28
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.988
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.895
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.643
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.297
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.337
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.315
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.525
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.279
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.381
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.558
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.357
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.367
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.432
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.425
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.381
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.558
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.357
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.381
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.558
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.357
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.381
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.558
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.357
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.367
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.432
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.425
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.381
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.558
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.357
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.367
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.432
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.425
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.381
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.558
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.357
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.367
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.432
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.425
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.41
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.35
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.769
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.316
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.41
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.35
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.769
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.316
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.41
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.35
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.769
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.316
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.41
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.35
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.769
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.316
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.35
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.41
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.769
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.316
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 1.0
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.768
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.318
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.449
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.768
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.318
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.449
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.768
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.318
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.449
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.317
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.544
+        },
+        {
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "confidence": 0.321
+        }
+    ]
+}

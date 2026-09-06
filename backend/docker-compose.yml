@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: urbanpulse_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: urbanpulse
+      POSTGRES_PASSWORD: urbanpulse_secret
+      POSTGRES_DB: urbanpulse_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    container_name: urbanpulse_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://urbanpulse:urbanpulse_secret@db:5432/urbanpulse_db
+      - ENVIRONMENT=production
+      - DEBUG=False
+      - AUTO_SEED_DEMO_DATA=True
+    depends_on:
+      - db
+    volumes:
+      - evidence_data:/app/storage/evidence
+
+volumes:
+  postgres_data:
+  evidence_data:

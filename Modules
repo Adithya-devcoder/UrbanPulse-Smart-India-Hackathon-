@@ -1,0 +1,95 @@
+Required Modules (from PS text)
+
+#
+Module
+What it does
+PS reference
+Tech Stack
+1
+Road defect detection
+Detects potholes, damaged roads, missing road dividers, missing/faded zebra crossings, waterlogging
+"detect road defects such as potholes, damaged roads..."
+YOLOv8 (fine-tuned on open pothole/road-damage datasets), OpenCV for waterlogging (color/texture-based segmentation)
+2
+Signboard condition detection
+Detects presence/absence/damage of traffic signboards
+"damaged or missing traffic signboards"
+YOLOv8 (custom class: signboard) + a simple "expected sign location" reference map to flag missing ones; optional OCR (EasyOCR) to check legibility
+3
+Vehicle density & classification
+Detects, classifies (car/bus/truck/2-wheeler), and counts vehicles to estimate density
+"estimate vehicle density through vehicle detection, classification and counting"
+YOLOv8 + ByteTrack/DeepSORT for tracking-based counting (avoids double-counting)
+4
+Traffic bottleneck identification
+Uses density + speed estimates to flag congestion points
+"identify traffic bottlenecks"
+Rule-based logic on top of Module 3's output (density threshold + dwell-time per frame) + optional simple time-series smoothing
+5
+Vulnerable pedestrian detection
+Flags risky pedestrian situations, e.g. school children crossing
+"detect vulnerable pedestrian situations such as school children crossing roads"
+YOLOv8 (person class) + zone-based rule logic (crossing-zone polygon + no stopped vehicle = risk flag)
+6
+Incident detection (hit-and-run/rash driving)
+Detects erratic vehicle behavior, tracks the vehicle
+"detect and track the offending vehicle"
+Trajectory analysis on tracked vehicle IDs (sudden acceleration/direction change) using DeepSORT tracks + simple anomaly thresholding
+7
+ANPR (plate recognition)
+Extracts registration number + confidence score during flagged incidents
+"extract the registration number with a confidence score, timestamp and GPS location"
+Pretrained Indian-plate detection model (YOLO) + EasyOCR/PaddleOCR for character recognition
+8
+Edge-AI onboard framework
+Runs all above on the bus itself, not in the cloud
+"edge-AI onboard processing framework"
+ONNX/TensorRT-optimized models on Jetson Nano (or simulated on laptop for demo)
+9
+Centralized GIS platform
+Aggregates fleet data, shows heatmaps, O-D patterns, route delays, reports
+"visualize events on a GIS map, generate congestion heat maps...analyse origin–destination traffic patterns"
+FastAPI backend + PostGIS (geospatial DB) + React + Leaflet/Mapbox frontend
+10
+Alerting system
+Securely shares alerts with central command
+"securely share alerts with a central command system"
+MQTT or HTTPS webhook (lightweight pub-sub for edge→cloud), JWT-based auth
+
+
+
+13
+Edge bandwidth optimization
+Directly answers the PS line "minimizing bandwidth through intelligent edge processing" — only transmit compressed metadata + cropped frame snippets, not full video, unless a high-confidence incident is flagged (then send a short clip)
+On-edge: send JSON metadata (class, confidence, GPS, timestamp) + JPEG-compressed crop by default; full video clip upload only triggered conditionally; demo with a before/after data-size comparison (e.g., "2GB/day raw video → ~40MB/day with edge processing")
+
+
+
+
+Your Novelty Additions
+
+#
+Novelty
+What it does
+Tech Stack
+11
+Offline-first store-and-forward sync
+Buses often lose network in tunnels, low-coverage areas, etc. Instead of dropping data, the edge device buffers detections locally and auto-syncs the moment connectivity returns — so no event is lost even in dead zones
+Local SQLite/embedded DB on the edge device as a buffer queue; background sync service (Python + requests retry logic, or MQTT with persistent session/QoS1) that flushes queued data on reconnect; delta-sync (only send unsent records, avoid duplicates via unique event IDs
+12
+Fleet-consensus validation
+If multiple buses independently flag the same pothole/defect at the same GPS point within a time window, auto-escalate confidence/priority — reduces false positives, turns noisy detections into reliable, evidence-backed alerts
+Geo-clustering logic (DBSCAN on lat/long + timestamp window) on the backend to group repeated detections into one verified event with a rising confidence score
+14
+Severity + cost-to-fix scoring
+Instead of just plotting dots on a map, auto-rank each detected issue by severity/urgency so the municipal dashboard becomes a prioritized action queue, not a flat list
+Simple scoring model combining: defect size (bounding box area as proxy), frequency of repeat detection (from Module 12), and road category (arterial vs. minor road, from GIS metadata) → weighted score → sorted work-order list
+
+
+
+
+Privacy & compliance angle (judges specifically probe this)
+Bus cameras capture faces, license plates of innocent vehicles, and inside-cabin footage of passengers/children. You need a story for this or a judge will ask and expose a gap.
+Auto-blur/anonymize faces and non-flagged plates before any data leaves the edge device (only unblur if legally flagged as an incident, with audit trail)
+Mention data retention policy (e.g., raw footage auto-deleted after 7 days unless linked to an active incident)
+This single addition signals you've thought about real-world deployment, not just a hackathon toy.
